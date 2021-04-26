@@ -1,0 +1,23 @@
+{
+    "created": 1619293061.8755105,
+    "duration": 0.46512746810913086,
+    "exitcode": 0,
+    "root": "C:\\Users\\Nadiia_Radionenko",
+    "summary": {
+        "passed": 2,
+        "total": 2,
+        "collected": 2
+    },
+    "tests": [
+        {
+            "nodeid": "pycharmprojects/dqe_mentorship/dqe_mentorship/tests/test_completeness.py::test_completeness",
+            "lineno": 15,
+            "outcome": "passed"
+        },
+        {
+            "nodeid": "pycharmprojects/dqe_mentorship/dqe_mentorship/tests/test_consistency.py::test_consistency",
+            "lineno": 14,
+            "outcome": "passed"
+        }
+    ]
+}
