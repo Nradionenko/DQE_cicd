@@ -1,9 +1,12 @@
 pipeline {
-agent any
+    agent any
+    triggers {
+        cron('30 1 1,15 * *')
+    }
 stages {
     stage('build') {
   steps {
-    echo 'Building.'
+    echo 'Building...'
   }
 }
     stage ('test'){
@@ -13,6 +16,9 @@ stages {
         }
     }
     stage ('push_to_preprod'){
+            when { 
+                triggeredBy 'TimerTrigger' 
+            }
         steps {
             echo 'Pushing development version to predprod branch'
             sh 'git fetch https://"Nradionenko":"${GIT_PASSWORD}"@github.com/"Nradionenko"/DQE_cicd.git'
