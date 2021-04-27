@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        cron('14 21 * * *')
+        cron('30 05 * * *')
     }
 stages {
     stage('build') {
@@ -16,7 +16,7 @@ stages {
         }
     }
     stage ('push_to_preprod'){
-            when { 
+        when { 
                 triggeredBy 'TimerTrigger' 
             }
         steps {
@@ -28,7 +28,13 @@ stages {
             sh 'git checkout preprod'
             sh 'git merge develop'
             sh 'git push https://"Nradionenko":"${GIT_PASSWORD}"@github.com/"Nradionenko"/DQE_cicd.git preprod'
+			
+        }
+	post {
+		success {
+			build job: 'CICD_homework_preprod_release'
+			}
+		}
+        }
         }
     }    
-}
-}
