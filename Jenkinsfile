@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'git init'
                 sh 'git checkout -b release-"${BUILDVERSION}" origin/develop'
+                sh 'git pull https://"Nradionenko":"${GIT_PASSWORD}"@github.com/"Nradionenko"/cicd_merge_to_release.git develop'
                 sh 'git push https://"Nradionenko":"${GIT_PASSWORD}"@github.com/"Nradionenko"/cicd_merge_to_release.git release-"${BUILDVERSION}"'
                 
             }
