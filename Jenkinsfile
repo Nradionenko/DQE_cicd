@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	environment {
-        def BUILDVERSION = sh(script: 'date +%Y-%m-%d_%H:%M:%S', returnStdout: true).trim()
+        def BUILDVERSION = sh(script: 'date +%Y-%m-%d_%H-%M-%S', returnStdout: true).trim()
     }
     triggers {
         cron('30 1 1,15 * *')
